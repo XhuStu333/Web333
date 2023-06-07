@@ -7,29 +7,96 @@
   -ms-user-select: none;
   user-select: none;
 }
+a{
+  text-decoration: none;
+}
 
 /* header部分 */
 /* 导航栏nav */
+.icon{
+  display: none;
+  position: absolute; 
+  margin-left: 50px;
+  font-size: 65px;
+  color:#7CA982;
+}
+
+/* 自适应 */
+/* @media screen and (max-width: 900px) {
+  nav ul{margin: 0;}
+  .topNav .nav{display: none;}
+  .topNav li:first-child{margin: 0 auto;}
+  .icon {
+    display: block;         
+  }
+}
+@media screen and (max-width: 900px) {
+  ul.responsive{flex-direction: column;padding: 0;}
+  ul.responsive .nav{
+    display: block;
+    background-color:#76db83;
+    position: relative; 
+    top:35px;
+    left: -173px;
+    width: 60%;
+    padding: 40px 0;
+    border:#14183E 1px solid;
+    font-size: 35px;
+  }
+  ul.responsive li.logo{position: relative; top: 17px;left: -25px;}
+  ul.responsive li.photo{position: absolute;right:100px;top: 18px;}
+  ul.responsive .icon {
+    position: absolute;      
+  }
+  ul.responsive .nav:hover{
+    font-family: 'Spectral SC';
+    padding: 40px 0;
+    border-bottom:none;
+    background-color: #7CA982;
+    font-size: 35px;
+  }
+  ul.responsive .secNav{
+    top:101px;
+    left: 0;
+    width: 100%;
+    height: 112px;
+    box-shadow: none;
+  }
+  ul.responsive .secNav li{
+    padding: 18px 0;
+  }
+} */
+
+
 nav{
   position: sticky;
   top:0;
   z-index: 99999;
   background-color: #FFFFFF;
   box-shadow: 0px 5px 5px rgba(73, 71, 71, 0.1);
+  width: 100%;
 }
 nav ul{
+  box-sizing: border-box;
+  width: 100%;
   height: 89px;
-  padding: 0 200px;
+  padding:0 100px;
   display:flex;
   justify-content:space-between;
   align-items: center;
+  text-align: center;
 }
 /*网站图标*/
 nav img:first-of-type{ 
   width:42px;
   height:42px;
 }
-nav span{
+nav img:last-of-type{ 
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+}
+nav ul .logo{
   color: #7CA982;
   font-family: 'FZYaoTi';
   font-size: 42px;
@@ -41,31 +108,30 @@ nav li{
   font-size: 20px;
   line-height: 20px;
   list-style: none;
-   transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+nav li :not(:first-of-type){
+  flex-shrink: 2;
+  border: 0;
 }
 .nav{
-  width: 65px;
+  width:65px;
 }
-/* .nav:last-of-type{
-  position: relative;
-} */
-nav li a{
+nav ul li a{
   text-decoration: none;
   color: #4A4A4A;
 }
 /* 触摸导航栏后 */
 .nav:hover{
   font-family: 'Spectral SC';
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 30px;
   font-weight: 700;
   cursor: pointer;
-  padding: 0 0 15px 0;
+  padding: 0 0 20px 0;
 	border-bottom:5px solid #7CA982;
 }
-.firNav{
-  position: relative;
-  /* float: left; */
+.firNav {
+  position: relative;  
 }
 .secNav{
   padding:0;
@@ -73,7 +139,7 @@ nav li a{
   position: absolute;
   width: 140px;
   height: 80px;
-  top: 45px;
+  top: 40px;
   left: -35px;
   background-color:#FFFFFF;
   font-size: 10px;
@@ -105,7 +171,7 @@ header{
   position: relative;
   top: -170px;
   left: 50%;
-   transform: translate(-50%,50%);/*居中 */
+  transform: translate(-50%,50%);/*居中 */
 } 
 .map a{
   text-decoration: none;
@@ -227,14 +293,15 @@ h2{
   font-family: "Signika SC";
   color: #14183E;
 }
+
 /* 我们的服务 */
 main section:first-of-type {
-  width: 1146px;
+  width: 100%;
   height: 478px;
   margin:0 auto;
-  /* margin-bottom: 50px; */
   display:flex;
   justify-content:center;
+  flex: 1;
 }
 /* 每个div小盒子 */
 .service{
@@ -285,18 +352,18 @@ section:nth-of-type(2){
 
 /* 最新资讯 */
 section:last-of-type{
-  width: 846px;
+  width: 100%;
   height: 588px;
-  margin: 0 auto;
   margin-bottom: 50px;
 }
 table{
+  width: 846px;
+  margin: 0 auto;
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 30px;
   overflow: hidden;
   line-height: 28px;
-  
 }
 table a{
   color: #575757;

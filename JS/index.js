@@ -169,6 +169,9 @@ function draw(){
         var rectY=y1+(width+yDis)*i,rectX=height;//柱子的位置
         ctx.fillRect(x0+1.5,rectY+30, height, width);//绘制一个柱状
     }
+
+
+   
 }
 
 
