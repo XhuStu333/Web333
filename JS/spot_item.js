@@ -22,7 +22,7 @@ function getMsg() {
 
 function show(spot, commentList) {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://192.168.78.34:3000/showSpot' + spot, true);
+  xhr.open('GET', 'http://192.168.1.108:3000/showSpot' + spot, true);
   xhr.responseType = 'json';
   xhr.onload = function () {
     let commentList=this.response.data;

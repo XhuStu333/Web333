@@ -34,7 +34,7 @@ function getMsg() {
 
 function show(spot) {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://192.168.78.34:3000/searchSpot' + spot, true);
+  xhr.open('GET', 'http://192.168.1.108:3000/searchSpot' + spot, true);
   xhr.responseType = 'json';
   xhr.onload = function () {
     if (this.readyState == 4) {
@@ -54,8 +54,6 @@ function show(spot) {
           // console.log(res);
         }
         left.innerHTML = res;
-        let footer=document.querySelector('footer');
-        footer.innerHTML='<p>Copyright © 333 版权所有</p>';
       }
     }
   }

@@ -7,7 +7,8 @@ body {
   margin: 0 auto;
 }
 
-header ul li,main ul li {
+header ul li,
+main ul li {
   list-style-type: circle;
   color: #7CA982;
   float: left;
@@ -16,13 +17,15 @@ header ul li,main ul li {
   padding: 0 10px;
 }
 
-header ul,main ul {
+header ul,
+main ul {
   padding-left: 34px;
   position: relative;
-  top: -12px;
+  padding-top: 8px;
 }
 
-header ul li::marker,main ul li::marker {
+header ul li::marker,
+main ul li::marker {
   font-size: 36px;
 }
 
@@ -118,7 +121,7 @@ div>button:hover {
   color: #333;
 }
 
-#right{
+#right {
   width: 55%;
 }
 
@@ -174,29 +177,79 @@ hr {
   height: 1px;
 }
 
-#pre,#next{
+#pre,
+#next {
   border: 2px solid #777;
   padding: 5px 15px;
-  border-radius:32px;
+  border-radius: 32px;
   font-weight: 600;
   font-size: 32px;
 
 }
 
-#pageBox{
+#pageBox {
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
 
-#page{
+#page {
   display: flex;
-  
+
   list-style: none;
 }
 
-#page li{
+#page li {
   font-weight: 600;
   font-size: 20px;
   margin: 12px;
   padding: 12px;
+}
+
+#comment-item {
+  padding-top: 12px;
+}
+
+header{
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  * {
+    transition: all .5s ease-in-out;
+  }
+
+  #background {
+    width: 100%;
+    padding: 0;
+  }
+
+  main{
+    padding:0 5%;
+  }
+
+  header{
+    margin-left: 10%;
+  }
+
+  h1{
+    margin-top: 20px;
+  }
+
+  #top,main>div:last-child  {
+    flex-direction:column;
+  }
+
+  #top>div:first-child,
+  #top>div:last-child {
+    width: 80%;
+    margin:0 20px auto auto;
+  }
+
+  #top>div:last-child{
+    margin:20px auto;
+  }
+
+  #right{
+    width: 100%;
+  }
 }

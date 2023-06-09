@@ -4,135 +4,138 @@
 		<meta charset="utf-8">
 		<title>用户注册</title>
 		<style type="text/css">
-			 
-			body{
-				width: 1200px;
-				height: 1000px;
+			body {
 				margin: 0 auto;
 				text-align: center;
+				background-image: url("img/登录页.png");
+				background-repeat: no-repeat;
 			}
-			h1{
+
+			h1 {
 				color: aliceblue;
 				font-weight: bold;
 				position: relative;
-				font-size: 5em;
+				font-size: 56px;
 				margin-bottom: 0px;
 			}
-			div{
-				padding-top: 18px ;
+
+			div {
+				padding-top: 18px;
+				width: 80%;
+				margin: 0 auto;
 			}
-			span{
-				font-size: 3em;
-				border-bottom: 5px solid #409eff; 
+
+			span {
+				font-size: 40px;
+				border-bottom: 5px solid #409eff;
 				padding-bottom: 5px;
-				 
+
 			}
-			input{
+
+			input {
 				height: 35px;
-				width: 250px;
+				width: 90%;
 				border-radius: 20px 20px 20px 20px;
 				padding-left: 10px;
+				font-size: 15px;
 			}
-			div:nth-child(2){
+
+			div:nth-child(2) {
 				display: flex;
-				justify-content: center;
+				text-align: center;
 			}
-			div:nth-child(2) input{
-				width: 160px;
-				height: 35px;
-				 
+
+			div:nth-child(2) input {
+				width: 55%;
+
 			}
-			div:nth-child(6) input{
+
+			div:nth-child(6) input {
 				background-color: #183A6A;
 				color: white;
 			}
-			#back{
-				width: 90%;
-				height: 70%;
+
+			#back {
+				height: 100%;
 				margin: 0 auto;
-				background-image: url("img/登录页.png");
-				background-size: cover;
-				background-repeat: no-repeat;
+
 			}
-			#regist{
+
+			#regist {
 				background-color: white;
-				width: 300px;
-				height: 350px;
-				margin: 0 auto;
+				width: 30%;
+				margin: 2% auto;
 				text-align: center;
 				position: relative;
 				top: 5%;
 				border-radius: 20px 20px 20px 20px;
-				box-shadow:  -1px 2px 15px 15px rgba(0, 0, 0, 0.25) ;
+				box-shadow: -1px 2px 15px 15px rgba(0, 0, 0, 0.25);
+				padding-bottom: 20px;
 			}
-			 
-			p{
+
+			p {
 				color: white;
-				font-family:'宋体' ;
-				font-size: 1.5em;
-				margin: 0 auto ;
+				font-family: '宋体';
+				font-size: 20px;
+				margin: 0 auto;
 			}
-			#usejpg{
+
+			#usejpg {
 				position: relative;
-				
 				padding-top: 0px;
-				margin-right: 30px;
-				/*width: 45px;
-				height: 45px;
-				background-color: rosybrown; 
-				
-				
-				*/
+				text-align: left;
+				width: 30%;
+				margin: 0 6% 0 0;
 			}
-			#userfile{
+
+			#userfile {
 				position: absolute;
-				top: 0;
-				bottom: 0;
+				top: 10%;
 				left: 0;
 				right: 0;
 				opacity: 0;
 				display: block;
-				width: 3.5rem;
 				clear: both;
-				margin: auto;
+				margin: 0;
 				background-color: red;
 			}
 		</style>
 	</head>
 	<body>
-		<form method="post" style="height: 1000px;">
-		<div id="back">
-			<h1>屾仙旅游</h1>
-			<p>念念不忘，一生向往</p>
-			<div id="regist">
-				<span>注册</span>
-				<div>
-					<div id="usejpg"><img src="img/user.jpg" id="userhead" style="width: 4em; height: 4em; border-radius:50%;overflow: hidden;"/>
-				    <input type="file" accept="image/*" id="userfile"  value="">
-				    </div>
-				<input type="text" name="name" placeholder="请输入昵称"/>
+		<form method="post">
+			<div id="back">
+				<h1>屾仙旅游</h1>
+				<p>念念不忘，一生向往</p>
+				<div id="regist">
+					<span>注册</span>
+					<div>
+						<div id="usejpg"><img src="img/user.jpg" id="userhead"
+								style="width: 2em; height: 2em; border-radius:50%;overflow: hidden;" />
+							<input type="file" accept="image/*" id="userfile" value="">
+						</div>
+						<input type="text" name="name" placeholder="请输入昵称" />
+					</div>
+					<div><input type="text" name="username" placeholder="请输入手机号" /></div>
+					<div><input type="password" name="password" placeholder="请输入密码" /></div>
+					<div><input type="password" placeholder="请再次输入密码" /></div>
+					<div><input type="submit" value="注册" /></div>
 				</div>
-				<div><input type="text" name="username" placeholder="请输入手机号"/></div>
-				<div><input type="password" name="password" placeholder="请输入密码"/></div>
-				<div><input type="password"  placeholder="请再次输入密码"/></div>
-				<div><input type="submit" value="注册"/></div>
 			</div>
-		</div>
-		<script>
-			 document.querySelector('#userfile').onchange = function (){
-			       if(this.files.length){
-			         let file = this.files[0];
-			         let reader = new FileReader();
-			         //新建 FileReader 对象
-			         reader.onload = function(){
-			           // 当 FileReader 读取文件时候，读取的结果会放在 FileReader.result 属性中
-			           document.querySelector('#userhead').src = this.result;
-			         };
-			         // 设置以什么方式读取文件，这里以base64方式
-			         reader.readAsDataURL(file);
-			        }
-			     }
-		</script>
+			<script>
+				document.querySelector('#userfile').onchange = function() {
+					if (this.files.length) {
+						let file = this.files[0];
+						let reader = new FileReader();
+						//新建 FileReader 对象
+						reader.onload = function() {
+							// 当 FileReader 读取文件时候，读取的结果会放在 FileReader.result 属性中
+							document.querySelector('#userhead').src = this.result;
+						};
+						// 设置以什么方式读取文件，这里以base64方式
+						reader.readAsDataURL(file);
+					}
+				}
+			</script>
 		</form>
 	</body>
 </html>

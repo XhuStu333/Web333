@@ -14,7 +14,7 @@ header {
 
 #box {
   display: flex;
-  background-image: url(../images/BG\ Element.png);
+  background-image: url(../img/BG_Element.png);
   background-repeat: no-repeat;
   justify-content: space-around;
   text-align: left;
@@ -98,4 +98,49 @@ main h2 {
   color: white;
   font-weight: 550;
   cursor: pointer;
+}
+
+@media screen and (max-width: 900px){
+  * {
+    transition: all .5s ease-in-out;
+  }
+
+  #background{
+    width: 100%;
+    padding: 0;
+  }
+
+  #box{
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  #search{
+    width:90%;
+  }
+
+  #search p{
+    display: none;
+  }
+
+  #search input{
+    width:75%;
+  }
+
+  #search button{
+    width: 80px;
+  }
+
+  #spot-nav ul{
+    display: block;
+    width: 15%;
+  }
+
+  #spot-nav ul li{
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px 2px;
+  }
 }

@@ -41,8 +41,8 @@ main>div {
   float: left;
 }
 
-main>div::after,
-main>div::before {
+main::after,
+main::before {
   display: block;
   content: '';
   clear: both;
@@ -66,7 +66,7 @@ main>div::before {
   -webkit-box-orient: vertical;
   color: #575757;
   position: relative;
-  top: -36px;
+  top: -10%;
 }
 
 #left-item{
@@ -116,7 +116,6 @@ main>div::before {
 #left-item ul {
   padding-left:34px;
   position: relative;
-  top:-14px;
 }
 
 #left-item ul li::marker {
@@ -146,4 +145,40 @@ main>div::before {
 #right-item>span{
   font-size: 24px;
   color: #407093;
+}
+
+@media screen and (max-width: 900px){
+  * {
+    transition: all .5s ease-in-out;
+  }
+
+  #background{
+    width: 100%;
+    padding: 0;
+  }
+
+  header{
+    width: 50%;
+  }
+
+  header input{
+    width: 60%;
+  }
+
+  button{
+    width: 90px;
+  }
+
+  #right{
+    display: none;
+  }
+
+  #left{
+    width: 80%;
+    margin: 0 0 5% 8%;
+  }
+
+  #left-item ul{
+    font-size: 12px;
+  }
 }
