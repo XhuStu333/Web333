@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
 }
 
-ul li {
+header ul li,main ul li {
   list-style-type: circle;
   color: #7CA982;
   float: left;
@@ -16,13 +16,13 @@ ul li {
   padding: 0 10px;
 }
 
-ul {
+header ul,main ul {
   padding-left: 34px;
   position: relative;
   top: -12px;
 }
 
-ul li::marker {
+header ul li::marker,main ul li::marker {
   font-size: 36px;
 }
 
