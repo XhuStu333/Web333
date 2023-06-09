@@ -1,7 +1,7 @@
 /*汉堡式导航栏*/
 var x = document.getElementById("topNav");
-var btn=document.getElementsByClassName("icon")[0];
-btn.onclick=navShow;
+var btnNav=document.getElementsByClassName("icon")[0];
+btnNav.onclick=navShow;
 function navShow() {   
   if (x.className === "topNav") {
     x.className += " responsive";

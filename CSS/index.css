@@ -22,9 +22,9 @@ a{
 }
 
 /* 自适应 */
-/* @media screen and (max-width: 900px) {
+/*@media screen and (max-width: 900px) {
   nav ul{margin: 0;}
-  .topNav .nav{display: none;}
+  .topNav .nav,.photo{display: none;}
   .topNav li:first-child{margin: 0 auto;}
   .icon {
     display: block;         
@@ -32,21 +32,23 @@ a{
 }
 @media screen and (max-width: 900px) {
   ul.responsive{flex-direction: column;padding: 0;}
+  ul.responsive li{transition: all 0.3s ease;}
   ul.responsive .nav{
     display: block;
     background-color:#76db83;
     position: relative; 
     top:35px;
-    left: -173px;
-    width: 60%;
+    left: -25%;
+    width: 50%;
     padding: 40px 0;
-    border:#14183E 1px solid;
     font-size: 35px;
   }
-  ul.responsive li.logo{position: relative; top: 17px;left: -25px;}
-  ul.responsive li.photo{position: absolute;right:100px;top: 18px;}
+  ul.responsive li.logo{position: relative; top: 17px;}
   ul.responsive .icon {
     position: absolute;      
+  }
+  ul.responsive .perWeb{
+    border-radius: 0 0 20px 20px;
   }
   ul.responsive .nav:hover{
     font-family: 'Spectral SC';
@@ -54,9 +56,11 @@ a{
     border-bottom:none;
     background-color: #7CA982;
     font-size: 35px;
+    transition: all 0.5s ease;
   }
   ul.responsive .secNav{
-    top:101px;
+    position: relative;
+    top:40px;
     left: 0;
     width: 100%;
     height: 112px;
@@ -64,8 +68,7 @@ a{
   }
   ul.responsive .secNav li{
     padding: 18px 0;
-  }
-} */
+  } */
 
 
 nav{
@@ -165,7 +168,7 @@ nav ul li a{
 header{
   height:650px;
   width: 100%;
-  background:url("../素材/背景.png");
+  background:url("../img/背景.png");
   background-size: 100% 100%;
   z-index: -1;
 }
@@ -399,6 +402,7 @@ td:nth-child(2n){
 
 /* footer部分 */
 footer p{
+  width: 100%;
   height:33px;
   background-color:#7CA982;
   font-family: "SimSun";

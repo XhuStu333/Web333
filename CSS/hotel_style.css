@@ -1,0 +1,15 @@
+#left_div {
+    float: left;
+}
+
+#right_div {
+    float: right;
+}
+
+#button_div {
+    clear: both;
+}
+
+#foot_div {
+    clear: both;
+}

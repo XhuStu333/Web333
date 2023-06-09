@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./CSS/nav.css">	
+	<style>
+		body {
+			margin: 0 auto;
+			font-family: '宋体';
+			background-color: beige;
+			-webkit-user-select: none;
+      -moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		#hotelimg {
+			display: flex;
+			height: 200px;
+			float: left;
+		}
+
+		table tr td :nth-child(6){
+			position: relative;
+			top: 8px;
+			font-weight: bold;
+		}
+
+		table {
+			height: 450px;
+			width: 650px;
+			margin: 0;
+		}
+
+		h1{
+			margin: 0;
+			color: #37a0d0;
+			font-weight: bold;
+		}
+		p{
+			font-weight: bold;
+		}
+		 
+		table tr th {
+			text-align: left;
+		}
+
+		table tr td div {
+			background-image: url("img/点评1.png");
+			height: 25px;
+			width: 28px;
+			float: left;
+			background-size: cover;
+			margin-right: 3px;
+
+		}
+		#head{
+			width: 260px;
+		}
+	</style>
+	</head>
+	<body>
+		<nav>  
+			<a href="javascript:void(0);" class="icon">&#9776;</a>
+			<ul class="topNav" id="topNav">
+				<li class="logo"><img src="./img/logo.png"/>屾仙旅游</li>
+				<li class="nav"><a href="index.html">首页</a></li>
+				<li class="nav"><a href="spot_main.html">景点</a></li>
+				<li class="nav"><a href="hotel.html">酒店</a></li>
+				<li class="nav firNav"><a href="comment.html">点评</a>
+					<ul class="secNav">
+						<li><a href="comment.html">攥写点评</a></li>
+						<li>发布照片</li>
+					</ul>
+				</li>
+				<li class="nav perWeb"><a  href="personalWeb.html">个人中心</a></li>
+				<li class="photo"><a href="personalWeb.html"><img src="./img/1.png"/></a></li>
+			</ul>
+		</nav>
+
+		<div id="hotelimg"><img src="img/hotel.webp" /></div>
+		<div>
+			<form method="post">
+				<table border="0">
+					<tr>
+						<th>
+							<h1>富尔韦圣母院</h1><br />
+							<span>Place de Fourviere，里昂 法国</span>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<div id="g1" onclick="good1()"></div>
+							<div id="g2" onclick="good2()"></div>
+							<div id="g3" onclick="good3()"></div>
+							<div id="g4" onclick="good4()"></div>
+							<div id="g5" onclick="good5()"></div>
+							<span>点击评分(必填)</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>点评标题:</p> 
+							<input type="text" placeholder="概括您在此地的经历,分享有趣细节" id="head" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>详细点评(不少于50字):</p>
+							<textarea cols="40" rows="6" placeholder="分享您的旅行经历,帮助其他旅行者让他们能有更好的选择,非常感谢!"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>您的旅行日期是？</p>
+							<input type="date" value="2023-05-22" />
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" />
+							<span>我保证这条酒店点评的内容是我的亲身经历及真实想法，我与此酒店不存在私人或业务关系，且没有接受过来自此产业的奖励或酬劳以撰写这条点评，我了解Tripadvisor绝不容忍虚假点评的政策。</span>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="提交" style="background-color: #1bb889; color: white;" /></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<hr />
+		<footer>
+			<p>Copyright © 333 版权所有</p>
+		</footer>
+		<script>
+			var flag = true;
+			var m='url("img/点评2.png")';
+			function good1() {
+				if (flag==true) {
+					document.getElementById('g1').style.backgroundImage = "url(img/点评2.png)";
+					flag = false;
+				} else {
+					document.getElementById('g1').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g2').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g3').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g4').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g5').style.backgroundImage = "url(img/点评1.png)";
+					flag = true;
+				}
+			}
+
+			function good2() {
+				var gn=document.getElementById('g1').style.backgroundImage;
+				if (!flag&&gn==m) {
+					document.getElementById('g2').style.backgroundImage = "url(img/点评2.png)";
+					flag = true;
+				} else {
+					document.getElementById('g2').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g3').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g4').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g5').style.backgroundImage = "url(img/点评1.png)";
+					flag = false;
+				}
+			}
+
+			function good3() { 
+				var gn=document.getElementById('g2').style.backgroundImage;
+				if (flag&&gn==m) {
+					document.getElementById('g3').style.backgroundImage = "url(img/点评2.png)";
+					flag = false;
+				} else {
+					document.getElementById('g3').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g4').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g5').style.backgroundImage = "url(img/点评1.png)";
+					flag = true;
+				}
+			}
+
+			function good4() {
+				var gn=document.getElementById('g3').style.backgroundImage;
+				if (!flag&&gn==m) {
+					document.getElementById('g4').style.backgroundImage = "url(img/点评2.png)";
+					flag = true;
+				} else {
+					document.getElementById('g4').style.backgroundImage = "url(img/点评1.png)";
+					document.getElementById('g5').style.backgroundImage = "url(img/点评1.png)";
+					flag = false;
+				}
+			}
+
+			function good5() {
+				var gn=document.getElementById('g4').style.backgroundImage;
+				if (flag&&gn==m) {
+					document.getElementById('g5').style.backgroundImage = "url(img/点评2.png)";
+					flag = false;
+				} else {
+					document.getElementById('g5').style.backgroundImage = "url(img/点评1.png)";
+					flag = true;
+				}
+			}
+		</script>
+		<script type="text/javascript" src="./JS/hamburger.js"></script>
+	</body>
+</html>
