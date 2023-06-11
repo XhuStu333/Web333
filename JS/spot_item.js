@@ -1,17 +1,11 @@
 const comment = document.querySelector("#comment");
-let numCount;
-let columnsCounts;
-let pageCount;
-let pageNum;
-let currPageNum;
-
-let prePage, nextPage;
-let firstPage, lastPage;
+let commentList;
 
 window.onload = function () {
   let spot;
   spot = getMsg();
-  commentList = show(spot);
+  show(spot);
+
 }
 
 function getMsg() {
@@ -20,16 +14,33 @@ function getMsg() {
   return spot;
 }
 
-function show(spot, commentList) {
+function blobToBase64(blob_data, callback) {
+  let reader = new FileReader()
+  reader.onload = (e) => {
+      if (callback) {
+          callback(e.target.result)
+      }
+  }
+  reader.readAsDataURL(blob_data)
+}
+
+function updataDate(n) {
+  let page=document.querySelector('#page');
+  comment.innerHTML='';
+}
+
+function show(spot) {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://192.168.1.108:3000/showSpot' + spot, true);
+  xhr.open('GET', 'http://192.168.1.106:3000/showSpot' + spot, true);
   xhr.responseType = 'json';
+  
   xhr.onload = function () {
-    let commentList=this.response.data;
+    commentList=this.response.data;
     if (this.readyState == 4) {
       if (this.status == 200) {
         //数据
         let res = "";
+        console.log(commentList);
         for (let index in commentList) {
           res += '<div id="comment-show"' + 'class="' + commentList[index].Cid + '">';
           res += '<span><img src="' + commentList[index].face + '"></span>';
@@ -37,53 +48,22 @@ function show(spot, commentList) {
           res += '<hr/><ul><li></li><li></li><li></li><li></li><li></li></ul><div>';
           res += '<h4>' + commentList[index].title + '</h4></div>';
           res += '<p>' + commentList[index].comment + '</p>';
-          res += '<div><span>撰写日期：' + commentList[index].data.substring(0, 10) + '</span>';
+          res += '<div><span>撰写日期：' + commentList[index].cdata.substring(0, 10) + '</span>';
           res += '<span id="icon-love"><img src="./img/love.png"></span></div></div><hr/>';
-          // console.log(res);
         }
+        console.log(res);
         comment.innerHTML = res;
-        console.log(commentList);
 
-
-        commentList = this.response.data;
-        document.querySelector("h1").innerHTML = commentList[0].place;
-        numCount = commentList.length;
         //分页
-    //     page=document.querySelector("#page");
-    //     prePage = document.querySelector("#pre");
-    //     nextPage = document.querySelector("#next");
-    //     pageCount = 5;
-    //     pageNum = parseInt(numCount / pageCount);
-    //     if (numCount % pageCount != 0)
-    //       pageCount++;
-    //     let pg = ""
-    //     for (let i = 1; i < pageNum + 1; i++) {
-    //       console.log(i + "页");
-    //       if (i == 1) {
-    //         pg+='<li class="page-item" id="'+i+'"><a href="javascript:firstPage()">'+i+'</a></li>'
-    //       }else{
-    //         if(i<5){
-    //           pg+='<li class="page-item" id="'+i+'">'+i+'</li>';
-    //         }else{
-    //           pg+='<li style="display:none;" class="page-item" id="'+i+'">'+i+'</li>';
-    //         }
-    //       }
-    //     }
-    //     page.innerHTML=pg;
-    //     firstPage=document.getElementById("1")
-    //     firstPage()
-    //     //firstPage=document.querySelector(".1");
-    //   }
-    // }
+        document.querySelector("h1").innerHTML = commentList[0].place;
+        let numCount = commentList.length;
+        let pageCount=Math.ceil(numCount/limit);
+        let prev=document.querySelector('#pre');
+        let next=document.querySelector('#next');
       }
     }
   }
   xhr.send();
 }
 
-// function firstPage(){
-//   hide();
-//   currPageNum=1;
-//   for(let i=1;i<pageCount+1;i++){
-    
-//   }
+

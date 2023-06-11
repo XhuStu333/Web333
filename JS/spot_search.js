@@ -9,7 +9,7 @@ window.onload = function () {
 btn.onclick = function () {
   let content = document.querySelector("input").value;
   console.log(content);
-  let page = "./spot_search.html?search=" + content;
+  let page = "./spot_search.html?search=" + content+"&id=1";
   window.location.href = encodeURI(page);
 }
 
@@ -19,7 +19,7 @@ left.onclick = function () {
     leftItem[i].addEventListener(
       "click",
       function () {
-        let page="./spot_item.html?spot="+this.className;
+        let page="./spot_item.html?spot="+this.className+"&id=1";
         window.location.href=encodeURI(page);
       }
     )
@@ -34,7 +34,7 @@ function getMsg() {
 
 function show(spot) {
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://192.168.1.108:3000/searchSpot' + spot, true);
+  xhr.open('GET', 'http://192.168.1.106:3000/searchSpot' + spot, true);
   xhr.responseType = 'json';
   xhr.onload = function () {
     if (this.readyState == 4) {

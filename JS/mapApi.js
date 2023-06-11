@@ -3,29 +3,23 @@ progressDone.forEach(progress => {
   progress.style.width = progress.getAttribute('data-done') + '%';
 });
 
-markLocation('北京市海淀区苏州街');
+let spot= getMsg();
+spot=spot.substring(6,spot.length-5);
+console.log(spot);
 
-function markLocation(addrss) {
-  AMap.plugin('AMap.Geocoder', function () {
-    let geocoder = new AMap.Geocoder();
-    geocoder.getLocation(addrss, function (status, result) {
-      if (status === 'complete' && result.info === 'OK') {
-        let lng = result.geocodes[0].location.lng;
-        let lat = result.geocodes[0].location.lat;
+let map = new BMap.Map(document.getElementById('mapShow'));
+map.centerAndZoom(spot,15);
+map.enableScrollWheelZoom(true);
+map.addControl(new BMap.NavigationControl());
+map.addControl(new BMap.ScaleControl());  // 添加比例尺控件
+map.addControl(new BMap.MapTypeControl());
 
-        let map = new AMap.Map('mapShow', {
-          resizeEnable: true,
-          zoom: 12,
-          center:[lng,lat]
-        });
-
-        let marker=new AMap.Marker({
-          map:map,
-          position:new AMap.LngLat(lng,lat),
-        });
-      }else{
-        console.log('定位失败！');
-      }
-    })
-  })
+let opts = {
+  width: 250,     // 信息窗口宽度
+  height: 100,    // 信息窗口高度
+  title: spot  // 信息窗口标题
 }
+let infoWindow = new BMap.InfoWindow(null, opts);  // 创建信息窗口对象
+addEventListener("click", function(){          
+  map.openInfoWindow(infoWindow, point); //开启信息窗口
+}); 
